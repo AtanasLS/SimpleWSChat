@@ -13,8 +13,8 @@ import ReconnectingWebSocket from 'reconnecting-websocket';
 })
 export class AppComponent {
   title = 'my-app';
-  messages: string[] = [];
-
+  sentMessages: string[] = [];
+  receivedMessages: string[] = [];
   ws: WebSocket = new WebSocket("ws://localhost:8181");
 
   rws: ReconnectingWebSocket = new ReconnectingWebSocket("ws://localhost:8181");
@@ -24,13 +24,22 @@ export class AppComponent {
   constructor()
   {
     this.rws.onmessage = message => {
-      this.messages.push(message.data)
+      this.receivedMessages.push(message.data);
     }
+    
 
   }
 
   sendMessage(){
     this.rws.send(this.messageContent.value!);
+    this.sentMessages.push(this.messageContent.value!);
+    this.messageContent.setValue('');
+
+  }
+
+  poke()
+  {
+    this.rws.send("poke");
   }
 
 
