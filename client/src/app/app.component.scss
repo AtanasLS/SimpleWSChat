@@ -1,0 +1,10 @@
+.page-container {
+  position: relative;
+  min-height: 100vh; /* Full viewport height */
+}
+
+.input-group {
+  position: absolute;
+  bottom: 0;
+  width: 100%; /* Make it full width */
+}
