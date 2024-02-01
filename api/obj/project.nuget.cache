@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zDFR8w+5eDTLl5cerhuX4L5n2gSuNbqmKYNCBPF+4ZUK/xGziNQx70hyeZSVfjUbtZ/Qn3DL+gHDIDcaglEw1w==",
+  "dgSpecHash": "QJt+1k9B6CRjPGAoKz1Xmr2KMesKw8an1AwP+Q8tWntptibz/x7m9pgapnuf+QHDOKXxygKAZXu7ZrY4YnhnFg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\4thSemesterFullstack\\WebSocketsBasics\\api\\api.csproj",
   "expectedPackageFiles": [
@@ -11,7 +11,8 @@
     "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
-    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
+    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\uldahlalex.websocket.boilerplate\\1.4.0\\uldahlalex.websocket.boilerplate.1.4.0.nupkg.sha512"
   ],
   "logs": []
 }

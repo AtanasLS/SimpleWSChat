@@ -10,7 +10,8 @@
         "dependencies": {
           "Fleck": "1.2.0",
           "Microsoft.AspNetCore.OpenApi": "8.0.1",
-          "Swashbuckle.AspNetCore": "6.4.0"
+          "Swashbuckle.AspNetCore": "6.4.0",
+          "uldahlalex.websocket.boilerplate": "1.4.0"
         },
         "runtime": {
           "api.dll": {}
@@ -81,6 +82,17 @@
             "fileVersion": "6.4.0.0"
           }
         }
+      },
+      "uldahlalex.websocket.boilerplate/1.4.0": {
+        "dependencies": {
+          "Fleck": "1.2.0"
+        },
+        "runtime": {
+          "lib/net8.0/lib.dll": {
+            "assemblyVersion": "1.4.0.0",
+            "fileVersion": "1.4.0.0"
+          }
+        }
       }
     }
   },
@@ -145,6 +157,13 @@
       "sha512": "sha512-1Hh3atb3pi8c+v7n4/3N80Jj8RvLOXgWxzix6w3OZhB7zBGRwsy7FWr4e3hwgPweSBpwfElqj4V4nkjYabH9nQ==",
       "path": "swashbuckle.aspnetcore.swaggerui/6.4.0",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+    },
+    "uldahlalex.websocket.boilerplate/1.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VzeoYKTHG5N+PKFNQ+MqyLiLhhKq4RarFrCxZm6+1NiLTVayuHUGbi58DEpR2lUugCWyuhktXwuQdvJ1K6u+gw==",
+      "path": "uldahlalex.websocket.boilerplate/1.4.0",
+      "hashPath": "uldahlalex.websocket.boilerplate.1.4.0.nupkg.sha512"
     }
   }
 }

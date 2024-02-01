@@ -67,3 +67,4 @@ C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4t
 C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\api\obj\Debug\net8.0\ref\api.dll
 C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\api\obj\Debug\net8.0\api.sourcelink.json
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\api\bin\Debug\net8.0\lib.dll

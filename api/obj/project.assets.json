@@ -116,6 +116,21 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "uldahlalex.websocket.boilerplate/1.4.0": {
+        "type": "package",
+        "dependencies": {
+          "Fleck": "1.2.0"
+        },
+        "compile": {
+          "lib/net8.0/lib.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/lib.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -475,13 +490,26 @@
         "swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "uldahlalex.websocket.boilerplate/1.4.0": {
+      "sha512": "VzeoYKTHG5N+PKFNQ+MqyLiLhhKq4RarFrCxZm6+1NiLTVayuHUGbi58DEpR2lUugCWyuhktXwuQdvJ1K6u+gw==",
+      "type": "package",
+      "path": "uldahlalex.websocket.boilerplate/1.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net8.0/lib.dll",
+        "uldahlalex.websocket.boilerplate.1.4.0.nupkg.sha512",
+        "uldahlalex.websocket.boilerplate.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Fleck >= 1.2.0",
       "Microsoft.AspNetCore.OpenApi >= 8.0.1",
-      "Swashbuckle.AspNetCore >= 6.4.0"
+      "Swashbuckle.AspNetCore >= 6.4.0",
+      "uldahlalex.websocket.boilerplate >= 1.4.0"
     ]
   },
   "packageFolders": {
@@ -490,11 +518,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\4thSemesterFullstack\\WebSocketsBasics\\api\\api.csproj",
+      "projectUniqueName": "c:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\4thSemesterFullstack\\WebSocketsBasics\\api\\api.csproj",
       "projectName": "api",
-      "projectPath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\4thSemesterFullstack\\WebSocketsBasics\\api\\api.csproj",
+      "projectPath": "c:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\4thSemesterFullstack\\WebSocketsBasics\\api\\api.csproj",
       "packagesPath": "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\4thSemesterFullstack\\WebSocketsBasics\\api\\obj\\",
+      "outputPath": "c:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\4thSemesterFullstack\\WebSocketsBasics\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Atanas Stoyanov\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -532,6 +560,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.4.0, )"
+          },
+          "uldahlalex.websocket.boilerplate": {
+            "target": "Package",
+            "version": "[1.4.0, )"
           }
         },
         "imports": [
