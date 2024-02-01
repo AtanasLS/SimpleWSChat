@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import ReconnectingWebSocket from 'reconnecting-websocket';
+import { BaseDto, ServerEchoClientDto } from '../BaseDto';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import ReconnectingWebSocket from 'reconnecting-websocket';
 })
 export class AppComponent {
   title = 'my-app';
+  messages: string[] = [];
   sentMessages: string[] = [];
   receivedMessages: string[] = [];
   ws: WebSocket = new WebSocket("ws://localhost:8181");
@@ -24,17 +26,28 @@ export class AppComponent {
   constructor()
   {
     this.rws.onmessage = message => {
-      this.receivedMessages.push(message.data);
-    }
-    
+        const messageFromServer = JSON.parse(message.data) as BaseDto<any>;
+        // @ts-ignore
+        this[messageFromServer.eventType].call(this, messageFromServer);
+      }
+  }
 
+  ServerEchoClient(dto: ServerEchoClientDto) {
+    this.messages.push(dto.echoValue!);
   }
 
   sendMessage(){
+    /*
     this.rws.send(this.messageContent.value!);
     this.sentMessages.push(this.messageContent.value!);
     this.messageContent.setValue('');
+    */
 
+    var object = {
+      eventType: "ClientWantsToEchoServer",
+      messageContent: this.messageContent.value!
+    }
+    this.rws.send(JSON.stringify(object));
   }
 
   poke()
