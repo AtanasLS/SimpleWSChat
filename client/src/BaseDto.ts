@@ -8,6 +8,11 @@ export class BaseDto<T>{
 
 }
 
+
 export class ServerEchoClientDto extends BaseDto<ServerEchoClientDto>{
     echoValue?: string;
+}
+
+export class ServerBroadcastsUserDto extends BaseDto<ServerBroadcastsUserDto>{
+    message? : string;
 }

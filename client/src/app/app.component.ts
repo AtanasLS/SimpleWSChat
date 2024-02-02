@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import ReconnectingWebSocket from 'reconnecting-websocket';
-import { BaseDto, ServerEchoClientDto } from '../BaseDto';
+import { BaseDto, ServerBroadcastsUserDto, ServerEchoClientDto } from '../BaseDto';
 
 @Component({
   selector: 'app-root',
@@ -17,32 +17,44 @@ export class AppComponent {
   messages: string[] = [];
   sentMessages: string[] = [];
   receivedMessages: string[] = [];
-  ws: WebSocket = new WebSocket("ws://localhost:8181");
 
   rws: ReconnectingWebSocket = new ReconnectingWebSocket("ws://localhost:8181");
 
   messageContent = new FormControl('');
 
+  username = new FormControl('');
+
   constructor()
   {
     this.rws.onmessage = message => {
-        const messageFromServer = JSON.parse(message.data) as BaseDto<any>;
-        // @ts-ignore
-        this[messageFromServer.eventType].call(this, messageFromServer);
-      }
+      const messageFromServer = JSON.parse(message.data) as BaseDto<any>;
+      console.log("Recieved: " + JSON.stringify(messageFromServer));
+      //@ts-ignore
+      this[messageFromServer.eventType].call(this, messageFromServer);
+    }
+  }
+
+  handleEvent(){
+    
+  }
+
+  ServerBroadcastsUser(dto: ServerBroadcastsUserDto){
+    this.messages.push(dto.message!);
   }
 
   ServerEchoClient(dto: ServerEchoClientDto) {
     this.messages.push(dto.echoValue!);
   }
 
-  sendMessage(){
-    /*
-    this.rws.send(this.messageContent.value!);
-    this.sentMessages.push(this.messageContent.value!);
-    this.messageContent.setValue('');
-    */
+  sendBroadcastedMessage(){
+    var object = {
+      eventType: "ClientWantsToBroadcastUser",
+      username: this.username.value!
+    }
+    this.rws.send(JSON.stringify(object));
+  }
 
+  sendEchoMessage(){
     var object = {
       eventType: "ClientWantsToEchoServer",
       messageContent: this.messageContent.value!

@@ -1,4 +1,19 @@
-<input [formControl]="messageContent" ><button (click)="sendMessage()"></button>
+
+<div class="mt-1 ">
+    <input type="text" class="form-control" [formControl]="messageContent" >
+<button type="button" class="btn btn-dark" (click)="sendEchoMessage()">Send</button>
+</div>
+
+
+
+<div class="mt-2">
+    <input [formControl]="username" ><button type="button" class="btn btn-primary" (click)="sendBroadcastedMessage()">Test</button>
+
+</div>
+
+
+
+
 
 
 {{messages | json}}

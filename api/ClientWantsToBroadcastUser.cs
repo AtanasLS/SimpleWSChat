@@ -26,10 +26,9 @@ namespace api
                     message = "succsess",
                 };
                 
-                foreach( var webConnection in WebSocketConnections.wsConnections ){
-
                 var messageToClient = JsonSerializer.Serialize(message);
-                
+
+                foreach( var webConnection in WebSocketConnections.wsConnections ){
                 webConnection.Send(messageToClient);
                 }
                 return Task.CompletedTask;
@@ -43,9 +42,12 @@ namespace api
 
                 var messageToClient = JsonSerializer.Serialize(message);
                 
-                socket.Send(messageToClient);
+                foreach(var webConnection in WebSocketConnections.wsConnections){
+                webConnection.Send(messageToClient);
+                }
                 
                 return Task.CompletedTask;
+
             }
             
             
