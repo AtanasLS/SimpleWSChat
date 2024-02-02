@@ -18,7 +18,7 @@ namespace api
             };
 
             var messageToClient = JsonSerializer.Serialize(echo);
-           
+            
             socket.Send(messageToClient);
 
             return Task.CompletedTask;
@@ -27,6 +27,6 @@ namespace api
 
     public class ServerEchoClient : BaseDto
     {
-        public string? echoValue { get; set; }
+        public string? echoValue { get; set; }  
     }
 }
