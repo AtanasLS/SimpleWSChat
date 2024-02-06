@@ -19,7 +19,7 @@ namespace api
 
             
             var username = dto.username;
-            if(username.Equals("Test"))
+            if(username!.Equals("Test"))
             {
                 var message = new ServerBroadcastsUser() 
                 {

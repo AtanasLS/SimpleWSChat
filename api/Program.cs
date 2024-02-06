@@ -7,6 +7,7 @@ using lib;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 var clientEventHandlers = builder.FindAndInjectClientEventHandlers(Assembly.GetExecutingAssembly());
 
 var app = builder.Build();
@@ -22,18 +23,23 @@ server.Start(socket =>
 
     socket.OnOpen = () => 
     {
-        WebSocketConnections.wsConnections.Add(socket);
+        
+        StateService.AddConnection(socket);
+        //WebSocketConnections.wsConnections.Add(socket);
     };
 
-    socket.OnMessage = message => 
+    socket.OnMessage = async message => 
     {   
         
         try
         {   
-            app.InvokeClientEventHandler(clientEventHandlers, socket, message);
+          await app.InvokeClientEventHandler(clientEventHandlers, socket, message);
         }
         catch(Exception e)
         {
+            Console.WriteLine(e.Message);
+            Console.WriteLine(e.InnerException);
+            Console.WriteLine(e.StackTrace);
             throw e = new Exception("It couldn't send the message!");   
         }
         
