@@ -16,3 +16,19 @@ export class ServerEchoClientDto extends BaseDto<ServerEchoClientDto>{
 export class ServerBroadcastsUserDto extends BaseDto<ServerBroadcastsUserDto>{
     message? : string;
 }
+
+export class ServerAddsClientToRoomDto extends BaseDto<ServerAddsClientToRoomDto>{
+    message? : string;
+}
+
+
+export class ServerBroadcastsMessageWithUsernameDto extends BaseDto<ServerBroadcastsMessageWithUsernameDto>{
+    message? : string;
+    username? : string;
+}
+
+export class ServerAddsUserToClientDto extends BaseDto<ServerAddsUserToClientDto>
+{
+    message?: string;
+    username?: string;
+}

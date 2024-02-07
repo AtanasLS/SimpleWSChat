@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import ReconnectingWebSocket from 'reconnecting-websocket';
-import { BaseDto, ServerBroadcastsUserDto, ServerEchoClientDto } from '../BaseDto';
+import { BaseDto, ServerAddsClientToRoomDto, ServerAddsUserToClientDto, ServerBroadcastsMessageWithUsernameDto, ServerBroadcastsUserDto, ServerEchoClientDto } from '../BaseDto';
+import { MessageData } from '../MessageData';
 
 @Component({
   selector: 'app-root',
@@ -15,14 +16,19 @@ import { BaseDto, ServerBroadcastsUserDto, ServerEchoClientDto } from '../BaseDt
 export class AppComponent {
   title = 'my-app';
   messages: string[] = [];
+  usernames: string[] = [];
   sentMessages: string[] = [];
   receivedMessages: string[] = [];
+
+  messageData: MessageData[] = [];
 
   rws: ReconnectingWebSocket = new ReconnectingWebSocket("ws://localhost:8181");
 
   messageContent = new FormControl('');
 
   username = new FormControl('');
+
+  roomId = new FormControl('');
 
   constructor()
   {
@@ -39,16 +45,59 @@ export class AppComponent {
   }
 
   ServerBroadcastsUser(dto: ServerBroadcastsUserDto){
-    this.messages.push(dto.message!);
+    this.messageData.push(JSON.parse(dto.message!));
   }
 
   ServerEchoClient(dto: ServerEchoClientDto) {
     this.messages.push(dto.echoValue!);
   }
+  
+  ServerBroadcastsMessageWithUsername(dto: ServerBroadcastsMessageWithUsernameDto){
+    const messageData = new MessageData(dto.message!, dto.username!, 0)
+    this.messageData.push(messageData);
+   // this.messageData.push(JSON.parse(dto.username!));
+  }
+  ServerAddsClientToRoom(dto: ServerAddsClientToRoomDto){
+    const messageData = new MessageData(dto.message!, "", 0);
+    this.messageData.push(messageData);
+  }
+
+  ServerAddsUserToClient(dto: ServerAddsUserToClientDto){
+    const messageData = new MessageData(dto.message!, dto.username!, 0);
+    this.messageData.push(messageData);
+  }
 
   sendBroadcastedMessage(){
     var object = {
       eventType: "ClientWantsToBroadcastUser",
+      username: this.username.value!
+    }
+    this.rws.send(JSON.stringify(object));
+  }
+
+  sendMessageToRoom()
+  {
+    var object = {
+      eventType: "ClientWantsToBroadcastToRoom",
+      message: this.messageContent.value!,
+      roomId: +this.roomId.value!
+    }
+
+    this.rws.send(JSON.stringify(object));
+  }
+
+  enterRoom(){
+    var object = {
+      eventType: "ClientWantsToEnterRoom",
+      roomId: +this.roomId.value!
+    }
+    this.rws.send(JSON.stringify(object));
+    console.log("test");
+  }
+
+  userSignUp(){
+    var object = {
+      eventType: "ClientWantsToSignIn",
       username: this.username.value!
     }
     this.rws.send(JSON.stringify(object));

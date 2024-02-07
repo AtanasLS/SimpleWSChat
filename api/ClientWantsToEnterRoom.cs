@@ -15,8 +15,10 @@ namespace api
     public class ClientWantsToEnterRoom : BaseEventHandler<ClientWantsToEnterRoomDto>
     {
         public override Task Handle(ClientWantsToEnterRoomDto dto, IWebSocketConnection socket)
-        {
-           var isSuccess = StateService.AddToRoom(socket, dto.roomId);
+        {   
+
+            StateService.RemoveFromRoom(socket);
+            var isSuccess = StateService.AddToRoom(socket, dto.roomId);
             socket.Send(JsonSerializer.Serialize(new ServerAddsClientToRoom{
                 message = "You were successfully added to room with ID: " + dto.roomId
             }));
@@ -26,6 +28,8 @@ namespace api
 
     public class ServerAddsClientToRoom : BaseDto
     {
+        internal string? username;
+
         public string? message { get; set; }
     }
 }

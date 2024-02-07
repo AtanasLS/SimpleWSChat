@@ -2,10 +2,17 @@ using Fleck;
 
 namespace api
 {
-    public class WsWithMetaData(IWebSocketConnection connection )
+    public class WsWithMetaData(IWebSocketConnection connection)
     {
         public IWebSocketConnection Connection { get; set; } = connection;
         public string? Username { get; set; }
+        public int currentRoom { get; set; }
+
+        public WsWithMetaData(IWebSocketConnection connection, int currentRoom) : this(connection)
+        {
+            this.Connection = connection;
+            this.currentRoom = currentRoom;
+        }
     }
     public static class StateService
     {
@@ -13,14 +20,35 @@ namespace api
         public static Dictionary<int, HashSet<Guid>> Rooms = new();
         public static bool AddConnection(IWebSocketConnection ws)
         {
-           return Connections.TryAdd(ws.ConnectionInfo.Id, new WsWithMetaData(ws));
+            int defaultRoom = 1;
+            var wsWithMetaData = new WsWithMetaData(ws, defaultRoom);
+
+           return Connections.TryAdd(ws.ConnectionInfo.Id, wsWithMetaData);
         }
 
         public static bool AddToRoom(IWebSocketConnection ws, int room)
-        {
+        {   
+            if(Connections.TryGetValue(ws.ConnectionInfo.Id, out var wsWithMetaData))
+            {
             if(!Rooms.ContainsKey(room))
                 Rooms.Add(room, new HashSet<Guid>());
-           return Rooms[room].Add(ws.ConnectionInfo.Id);
+                wsWithMetaData.currentRoom = room;
+              return Rooms[room].Add(ws.ConnectionInfo.Id);
+            }
+            return false;
+        }   
+        
+        public static bool RemoveFromRoom(IWebSocketConnection ws)
+        {
+            if(Connections.TryGetValue(ws.ConnectionInfo.Id, out var wsWithMetaData))
+            {
+                int currentRoom = wsWithMetaData.currentRoom;
+                if(Rooms.ContainsKey(currentRoom))
+               return Rooms[currentRoom].Remove(ws.ConnectionInfo.Id);
+
+                
+            }
+            return false;
         }
 
         public static void BroadCastToRoom(int room, string message)

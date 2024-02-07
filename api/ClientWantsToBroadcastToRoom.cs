@@ -19,6 +19,7 @@ namespace api
         {
             var message = new ServerBroadcastsMessageWithUsername()
             {
+                
                 message = dto.message,
                 username = StateService.Connections[socket.ConnectionInfo.Id].Username
             };

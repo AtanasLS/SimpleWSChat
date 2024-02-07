@@ -1,9 +1,73 @@
+<header>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Mini Chat App</span>
+            <input type="text" class="form-control" placeholder="Username" 
+            aria-label="Username" aria-describedby="button-addon2"
+            [formControl]="username">
 
-<div class="mt-1 ">
-    <input type="text" class="form-control" [formControl]="messageContent" >
-<button type="button" class="btn btn-dark" (click)="sendEchoMessage()">Send</button>
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" 
+            (click)="userSignUp()">Sign-Up</button>
+        </div>
+    </nav>
+</header>
+  
+  
+  <main>
+    <div class="chat-container">
+        <div class="chat-box">
+            <div class="card">
+                <div class="card-header">
+                    Direct Message
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flesh">
+                        <li class="list-group-item" *ngFor="let data of messageData" >
+                            <div class="message-container">
+                                <span class="user-name">{{data.username}}</span>
+                                <span class="user-message">{{data.message}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-footer">
+                        <div class="row chat-send-row">
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" placeholder="Enter room" 
+                                aria-label="Enter room" aria-describedby="button-addon2"
+                                [formControl]="roomId">
+
+                                <button class="btn btn-outline-secondary" 
+                                type="button" id="button-addon2" (click)="enterRoom()">Enter</button>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Message..." 
+                                aria-label="Message..." aria-describedby="button-addon2"
+                                [formControl]="messageContent">
+
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" 
+                                (click)="sendMessageToRoom()">Send</button>
+                            </div>
+                            <div class="col-md-2">
+                                
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<!-- 
+<div class="mt-1 ml-3">
+    <div class="mt-2 justify-contet-center">
+        <input type="text" class="form-control" [formControl]="messageContent" >
+        <button type="button" class="btn btn-dark" (click)="sendEchoMessage()">Send</button>
+    </div>
+    
 </div>
-
 
 
 <div class="mt-2">
@@ -13,7 +77,5 @@
 
 
 
-
-
-
 {{messages | json}}
+-->

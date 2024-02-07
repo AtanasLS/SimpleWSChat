@@ -1,10 +1,26 @@
-.page-container {
-  position: relative;
-  min-height: 100vh; /* Full viewport height */
+.chat-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.input-group {
-  position: absolute;
-  bottom: 0;
-  width: 100%; /* Make it full width */
+.chat-container .chat-box {
+  margin: 4rem;
+  min-width: 50rem;
+  max-width: 80%; /* Set a maximum width for responsiveness */
+}
+
+.chat-container .card-body {
+  height: 40rem;
+  overflow-y: auto; /* Add overflow-y for scroll if content exceeds the height */
+}
+
+.message-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px; /* Adjust the padding as needed for spacing */
+}
+
+.user-name {
+  font-weight: bold; /* Make the username bold for emphasis */
 }
