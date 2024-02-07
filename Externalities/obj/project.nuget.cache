@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "byrDREjPcsNu46XsoK/Yaw8TWI+K3iE2C2OHlpqe45OyqQTD13cVtjFzIGMqvLtQbHc4gAbpGMBekxLQPfmDzw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Atanas Stoyanov\\OneDrive - Erhvervsakademi Sydvest\\Dokumenter\\GitHub\\4thSemesterFullstack\\WebSocketsBasics\\Externalities\\Externalities.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\dapper\\2.1.28\\dapper.2.1.28.nupkg.sha512",
+    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\npgsql\\8.0.1\\npgsql.8.0.1.nupkg.sha512",
+    "C:\\Users\\Atanas Stoyanov\\.nuget\\packages\\npgsql.dependencyinjection\\8.0.1\\npgsql.dependencyinjection.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
