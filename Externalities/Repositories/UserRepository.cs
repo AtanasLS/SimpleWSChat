@@ -1,3 +1,4 @@
+using Dapper;
 using Externalities.Interfaces;
 using Externalities.QueryModels;
 using Npgsql;
@@ -16,27 +17,46 @@ namespace Externalities.Repositories
 
         public IEnumerable<User> GetAllUsers()
         {
-            throw new NotImplementedException();
+            using var conn = _dataSource.OpenConnection();
+            return conn.Query<User>(@$"
+            select * from chat_app.users;
+            ");
         }
 
         public User GetUserById(int id)
         {
-            throw new NotImplementedException();
+            using var conn = _dataSource.OpenConnection();
+            return conn.QueryFirst<User>(@$"
+            select from chat_app.users where id=@id;
+            ", id);
         }
 
          public User CreateUser(string username)
         {
-            throw new NotImplementedException();
+            var paramaters = new {username};
+            using var conn = _dataSource.OpenConnection();
+            return conn.QueryFirst<User>(@$"
+            insert into chat_app.users (nickname) values (@username)
+            returning *;
+            ", paramaters);
         }
 
         public User UpdateUser(int id, string username)
         {
-            throw new NotImplementedException();
+            var paramaters = new {id, username};
+            using var conn = _dataSource.OpenConnection();
+            return conn.QueryFirst<User>(@$"
+            update into chat_app.users set nickname=@username where id=@id
+            returning *;
+            ", paramaters);
         }
 
         public void DeleteUser(int id)
         {
-            throw new NotImplementedException();
+            using var conn = _dataSource.OpenConnection();
+            conn.Execute($@"
+                delete from chat_app.users where id=@id;
+            ", id);
         }
 
         
