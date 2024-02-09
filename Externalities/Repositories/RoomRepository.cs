@@ -33,17 +33,29 @@ namespace Externalities.Repositories
 
         public Room CreateRoom(string name)
         {
-            throw new NotImplementedException();
+            using var conn = _dataSource.OpenConnection();
+            return conn.QueryFirst<Room>(@$"
+            insert into chat_app.rooms (name) values (@name)
+            returning *;
+            ", name);
         }
 
         public Room UpdateRoom(int id, string name)
         {
-            throw new NotImplementedException();
+            var paramaters = new {id, name};
+            using var conn = _dataSource.OpenConnection();
+            return conn.QueryFirst<Room>(@$"
+            update chat_app.rooms set name=@name where id=@id
+            returning *;
+            ", paramaters);
         }
         
         public void DeleteRoom(int id)
         {
-            throw new NotImplementedException();
+            using var conn = _dataSource.OpenConnection();
+            conn.Execute($@"
+            delete from chat_app.rooms where id=@id;
+            ", id);
         }
 
         
