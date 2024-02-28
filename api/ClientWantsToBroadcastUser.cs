@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Externalities.Repositories;
 using Fleck;
 using lib;
 
@@ -12,13 +13,14 @@ namespace api
     {
         public string? username { get; set; }
     }
-    public class ClientWantsToBroadcastUser : BaseEventHandler<ClientWantsToBroadcastUserDto>
+    public class ClientWantsToBroadcastUser(MessageRepository messageRepository) : BaseEventHandler<ClientWantsToBroadcastUserDto>
     {
         public override Task Handle(ClientWantsToBroadcastUserDto dto, IWebSocketConnection socket)
         {
 
             
             var username = dto.username;
+            
             if(username!.Equals("Test"))
             {
                 var message = new ServerBroadcastsUser() 

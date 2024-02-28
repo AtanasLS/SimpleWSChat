@@ -31,6 +31,14 @@ namespace Externalities.Repositories
             ", id);
         }
 
+        public User FindUserByUsername(string username)
+        {
+            using var conn = _dataSource.OpenConnection();
+            return conn.QueryFirstOrDefault<User>(@$"
+            select * from chat_app.users where nickname=@username;
+            ", new {username})!;
+        }
+
          public User CreateUser(string username)
         {
             var paramaters = new {username};

@@ -1,12 +1,25 @@
 using System.Reflection;
 using System.Text.Json;
 using api;
+using Externalities.Repositories;
 using Fleck;
+using infrastructure;
 using lib;
 
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+
+builder.Services.AddNpgsqlDataSource(Utilities.ProperlyFormattedConnectionString,
+        sourceBuilder => { sourceBuilder.EnableParameterLogging();});
+
+
+builder.Services.AddSingleton<MessageRepository>();
+builder.Services.AddSingleton<UserRepository>();
+builder.Services.AddSingleton<RoomRepository>();
+
 
 
 var clientEventHandlers = builder.FindAndInjectClientEventHandlers(Assembly.GetExecutingAssembly());

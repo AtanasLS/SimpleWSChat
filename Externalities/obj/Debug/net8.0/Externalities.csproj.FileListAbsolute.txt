@@ -1,0 +1,13 @@
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\Externalities\bin\Debug\net8.0\Externalities.deps.json
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\Externalities\bin\Debug\net8.0\Externalities.dll
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\Externalities\bin\Debug\net8.0\Externalities.pdb
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\Externalities\obj\Debug\net8.0\Externalities.csproj.AssemblyReference.cache
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\Externalities\obj\Debug\net8.0\Externalities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\Externalities\obj\Debug\net8.0\Externalities.AssemblyInfoInputs.cache
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\Externalities\obj\Debug\net8.0\Externalities.AssemblyInfo.cs
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\Externalities\obj\Debug\net8.0\Externalities.csproj.CoreCompileInputs.cache
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\Externalities\obj\Debug\net8.0\Externalities.sourcelink.json
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\Externalities\obj\Debug\net8.0\Externalities.dll
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\Externalities\obj\Debug\net8.0\refint\Externalities.dll
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\Externalities\obj\Debug\net8.0\Externalities.pdb
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\Externalities\obj\Debug\net8.0\ref\Externalities.dll

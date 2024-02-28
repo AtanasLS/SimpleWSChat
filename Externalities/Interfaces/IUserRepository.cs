@@ -10,6 +10,7 @@ namespace Externalities.Interfaces
     {
         IEnumerable<User> GetAllUsers();
         User GetUserById(int id);
+        User FindUserByUsername(string username);
         User CreateUser(string username);
         User UpdateUser(int id, string username);
         void DeleteUser(int id);
