@@ -1,3 +1,4 @@
+using Externalities.QueryModels;
 using Fleck;
 
 namespace api
@@ -5,7 +6,8 @@ namespace api
     public class WsWithMetaData(IWebSocketConnection connection)
     {
         public IWebSocketConnection Connection { get; set; } = connection;
-        public string? Username { get; set; }
+        //public string username { get; set; }
+        public User currentUser { get; set; }
         public int currentRoom { get; set; }
 
         public WsWithMetaData(IWebSocketConnection connection, int currentRoom) : this(connection)
@@ -21,7 +23,7 @@ namespace api
         public static bool AddConnection(IWebSocketConnection ws)
         {
             int defaultRoom = 1;
-            var wsWithMetaData = new WsWithMetaData(ws, defaultRoom);
+            var wsWithMetaData = new WsWithMetaData(ws ,defaultRoom);
 
            return Connections.TryAdd(ws.ConnectionInfo.Id, wsWithMetaData);
         }

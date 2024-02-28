@@ -22,7 +22,6 @@ namespace api
 
             var isSuccess = StateService.AddToRoom(socket, dto.roomId);
 
-            Console.WriteLine("TEST TEST TEST:   "  +dto.roomId);
             var room = roomRepository.GetRoomById(dto.roomId);
 
             if(room == null)

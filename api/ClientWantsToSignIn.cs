@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Externalities.QueryModels;
 using Externalities.Repositories;
 using Fleck;
 using lib;
@@ -19,16 +20,16 @@ namespace api
     {
         public override Task Handle(ClientWantsToSignInDto dto, IWebSocketConnection socket)
         {
-            StateService.Connections[socket.ConnectionInfo.Id].Username = dto.username;
+            User user = userRepository.FindUserByUsername(dto.username!);
+            
+            if(user == null)
+            userRepository.CreateUser(dto.username!);
+
+            StateService.Connections[socket.ConnectionInfo.Id].currentUser = user;
             var messageToClient = new ServerAddsClientToRoom(){
                 message = "User with username: " + dto.username,
                 username = dto.username
             };
-
-            var user = userRepository.FindUserByUsername(dto.username!);
-
-            if(user == null)
-            userRepository.CreateUser(dto.username!);
 
             socket.Send(JsonSerializer.Serialize(messageToClient));
             return Task.CompletedTask;

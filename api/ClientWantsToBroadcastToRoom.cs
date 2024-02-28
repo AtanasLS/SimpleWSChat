@@ -15,18 +15,24 @@ namespace api
     {
         public string? message { get; set; }
         public int roomId { get; set; }
+        
     }
     public class ClientWantsToBroadcastToRoom(MessageRepository messageRepository) : BaseEventHandler<ClientWantsToBroadcastToRoomDto>
     {
         public override async Task Handle(ClientWantsToBroadcastToRoomDto dto, IWebSocketConnection socket)
         {
+            
+            
             await isMessageHateSpeech(dto.message!);
-            messageRepository.CreateMessage(dto.message!, DateTimeOffset.UtcNow, 1, dto.roomId);
+            
+            var userId = StateService.Connections[socket.ConnectionInfo.Id].currentUser.id;
+
+            messageRepository.CreateMessage(dto.message!, DateTimeOffset.UtcNow, userId, dto.roomId);
 
             var message = new ServerBroadcastsMessageWithUsername()
             {
                 message = dto.message,
-                username = StateService.Connections[socket.ConnectionInfo.Id].Username
+                username = StateService.Connections[socket.ConnectionInfo.Id].currentUser!.username
             };
             StateService.BroadCastToRoom(dto.roomId, JsonSerializer.Serialize(message));
         }
