@@ -10,7 +10,7 @@ namespace Externalities.Interfaces
     {
         IEnumerable<Room> GetAllRooms();
         Room GetRoomById(int id);
-        Room CreateRoom(string name);
+        Room CreateRoom(int id, string name);
         Room UpdateRoom(int id, string name);
         void DeleteRoom(int id);
     }

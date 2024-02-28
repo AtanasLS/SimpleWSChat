@@ -14,7 +14,7 @@ namespace Externalities.Repositories
             _dataSource = dataSource;
         }
 
-        
+
 
         public IEnumerable<Room> GetAllRooms()
         {
@@ -27,29 +27,29 @@ namespace Externalities.Repositories
         public Room GetRoomById(int id)
         {
             using var conn = _dataSource.OpenConnection();
-            return conn.QueryFirst<Room>(@$"
-            select from chat_app.rooms where id=@id", id);
+            return conn.QueryFirstOrDefault<Room>(@$"
+            select * from chat_app.rooms where id=@id;", new { id })!;
         }
 
-        public Room CreateRoom(string name)
+        public Room CreateRoom(int id, string name)
         {
             using var conn = _dataSource.OpenConnection();
             return conn.QueryFirst<Room>(@$"
-            insert into chat_app.rooms (name) values (@name)
+            insert into chat_app.rooms (id ,name) values (@id ,@name)
             returning *;
-            ", name);
+            ", new { id, name });
         }
 
         public Room UpdateRoom(int id, string name)
         {
-            var paramaters = new {id, name};
+            var paramaters = new { id, name };
             using var conn = _dataSource.OpenConnection();
             return conn.QueryFirst<Room>(@$"
             update chat_app.rooms set name=@name where id=@id
             returning *;
             ", paramaters);
         }
-        
+
         public void DeleteRoom(int id)
         {
             using var conn = _dataSource.OpenConnection();
@@ -58,6 +58,6 @@ namespace Externalities.Repositories
             ", id);
         }
 
-        
+
     }
 }

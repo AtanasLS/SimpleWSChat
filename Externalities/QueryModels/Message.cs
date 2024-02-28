@@ -10,8 +10,8 @@ namespace Externalities.QueryModels
         public string? content { get; set; }
         public DateTimeOffset timestapm { get; set; }
         public int userId { get; set; }
-        public User user { get; set; }
+        public User? user { get; set; }
         public int roomId { get; set; }
-        public Room room { get; set; }
+        public Room? room { get; set; }
     }
 }
