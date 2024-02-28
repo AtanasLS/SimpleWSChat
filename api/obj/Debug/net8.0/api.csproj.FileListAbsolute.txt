@@ -68,3 +68,8 @@ C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4t
 C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\api\obj\Debug\net8.0\ref\api.dll
 C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\api\obj\Debug\net8.0\api.sourcelink.json
 C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\api\bin\Debug\net8.0\lib.dll
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\api\bin\Debug\net8.0\Dapper.dll
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\api\bin\Debug\net8.0\Npgsql.dll
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\api\bin\Debug\net8.0\Npgsql.DependencyInjection.dll
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\api\bin\Debug\net8.0\Externalities.dll
+C:\Users\Atanas Stoyanov\OneDrive - Erhvervsakademi Sydvest\Dokumenter\GitHub\4thSemesterFullstack\WebSocketsBasics\api\bin\Debug\net8.0\Externalities.pdb

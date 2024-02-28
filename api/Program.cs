@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Text.Json;
 using api;
 using Fleck;
 using lib;
@@ -37,6 +38,11 @@ server.Start(socket =>
         }
         catch(Exception e)
         {
+            await socket.Send(JsonSerializer.Serialize(new ServerSendsErrorToTheClient
+            {
+                message = e.Message
+            }));
+
             Console.WriteLine(e.Message);
             Console.WriteLine(e.InnerException);
             Console.WriteLine(e.StackTrace);
@@ -52,6 +58,11 @@ server.Start(socket =>
 
 Console.ReadLine();
 
+
+public class ServerSendsErrorToTheClient
+{
+    public string? message { get; set; }
+}
 public class WebSocketConnections
 {
     public static List<IWebSocketConnection> wsConnections = new List<IWebSocketConnection>();
