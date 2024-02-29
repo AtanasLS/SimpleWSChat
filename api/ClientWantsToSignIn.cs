@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -21,9 +22,8 @@ namespace api
         public override Task Handle(ClientWantsToSignInDto dto, IWebSocketConnection socket)
         {
             User user = userRepository.FindUserByUsername(dto.username!);
-            
-            if(user == null)
-            userRepository.CreateUser(dto.username!);
+            if(user.username != dto.username)
+                throw new ValidationException("User with that username doesn't exist!");
 
             StateService.Connections[socket.ConnectionInfo.Id].currentUser = user;
             var messageToClient = new ServerAddsClientToRoom(){

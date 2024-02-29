@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Externalities")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4e7077be8e380915552de8d50c348af9e9640d9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7019d783704cb15cadc9aa5fbf0f1837e27c2144")]
 [assembly: System.Reflection.AssemblyProductAttribute("Externalities")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Externalities")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

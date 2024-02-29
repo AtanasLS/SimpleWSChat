@@ -22,7 +22,6 @@ namespace api
         public override async Task Handle(ClientWantsToBroadcastToRoomDto dto, IWebSocketConnection socket)
         {
             
-            
             await isMessageHateSpeech(dto.message!);
             
             var userId = StateService.Connections[socket.ConnectionInfo.Id].currentUser.id;

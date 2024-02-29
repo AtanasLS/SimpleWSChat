@@ -36,7 +36,7 @@ namespace Externalities.Repositories
             using var conn = _dataSource.OpenConnection();
             return conn.QueryFirstOrDefault<User>(@$"
             select * from chat_app.users where nickname=@username;
-            ", new {username})!;
+            ", new {username})! ?? throw new KeyNotFoundException("Could not find user with username " + username);
         }
 
          public User CreateUser(string username)
