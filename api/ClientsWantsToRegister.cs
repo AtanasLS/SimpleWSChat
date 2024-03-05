@@ -14,8 +14,8 @@ namespace api
     {
         public override Task Handle(ClientsWantsToRegisterDto dto, IWebSocketConnection socket)
         {
-            //if(userRepository.FindUserByUsername(dto.Username!).username == dto.Username)
-            //  throw new ValidationException("User with that username already exsits.");
+            if(userRepository.FindUserByUsername(dto.Username!).username == dto.Username)
+              throw new ValidationException("User with that username already exsits.");
             
             var user = userRepository.CreateUser(dto.Username!);
 

@@ -17,8 +17,8 @@
       "applicationUrl": "http://localhost:5172",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "pgconn": "postgres://nsvoykar:V7aa5lQzmp2KCFApIJCdzix63BUdcnvz@snuffleupagus.db.elephantsql.com/nsvoykar"
-
+        "pgconn": "postgres://nsvoykar:V7aa5lQzmp2KCFApIJCdzix63BUdcnvz@snuffleupagus.db.elephantsql.com/nsvoykar",
+        "subKey": "1c2327191ac94faf8bb464f62fa72b1e"
       }
     },
     "https": {

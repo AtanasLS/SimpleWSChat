@@ -45,7 +45,7 @@ namespace api
             requestUri);
 
             request.Headers.TryAddWithoutValidation("accept", "application/json");
-            request.Headers.TryAddWithoutValidation("Ocp-Apim-Subscription-Key", "1c2327191ac94faf8bb464f62fa72b1e");
+            request.Headers.TryAddWithoutValidation("Ocp-Apim-Subscription-Key", Environment.GetEnvironmentVariable("subKey"));
 
             var req = new
             {
