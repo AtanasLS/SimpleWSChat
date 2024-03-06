@@ -21,7 +21,12 @@ namespace api
     {
         public override Task Handle(ClientWantsToSignInDto dto, IWebSocketConnection socket)
         {
-            User user = userRepository.FindUserByUsername(dto.username!);
+
+            
+            var user = userRepository.FindUserByUsername(dto.username!);
+            
+            Console.WriteLine("HErreeee:  " + user.username);
+            
             if(user.username != dto.username)
                 throw new ValidationException("User with that username doesn't exist!");
 
