@@ -31,12 +31,13 @@ namespace Externalities.Repositories
             ", id);
         }
 
-        public User FindUserByUsername(string username)
+        public User FindUserByUsername(string nickname)
         {
             using var conn = _dataSource.OpenConnection();
+            var paramaters = new {nickname};
             return conn.QueryFirstOrDefault<User>(@$"
-            select * from chat_app.users where nickname=@username;
-            ", new {username})! ?? throw new KeyNotFoundException("Could not find user with username " + username);
+            select nickname as {nameof(User.username)} from chat_app.users where nickname=@nickname;
+            ", paramaters)! ?? throw new KeyNotFoundException("Could not find user with username " + nickname);
         }
 
          public User CreateUser(string username)
