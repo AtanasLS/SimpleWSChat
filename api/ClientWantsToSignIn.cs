@@ -23,14 +23,20 @@ namespace api
         {
 
             
-            var user = userRepository.FindUserByUsername(dto.username!);
-            
-            Console.WriteLine("HErreeee:  " + user.username);
+            User user = userRepository.FindUserByUsername(dto.username!);
+            Console.WriteLine("HERE IS THE ID: " + user.id);
+            Console.WriteLine("HERE IS THE NAME: " + user.id);
+
+
+            StateService.AddUser(socket, user);
+
             
             if(user.username != dto.username)
                 throw new ValidationException("User with that username doesn't exist!");
 
-            StateService.Connections[socket.ConnectionInfo.Id].currentUser = user;
+            //StateService.Connections[socket.ConnectionInfo.Id].currentUser = user;
+
+            
             var messageToClient = new ServerAddsClientToRoom(){
                 message = "User with username: " + dto.username,
                 username = dto.username

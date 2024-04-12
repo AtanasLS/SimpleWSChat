@@ -19,6 +19,7 @@ namespace api
             
             var user = userRepository.CreateUser(dto.Username!);
 
+            
             StateService.Connections[socket.ConnectionInfo.Id].currentUser = user;
 
             return Task.CompletedTask;

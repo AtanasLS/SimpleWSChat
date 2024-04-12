@@ -24,7 +24,9 @@ namespace api
             
             await isMessageHateSpeech(dto.message!);
             
-            var userId = StateService.Connections[socket.ConnectionInfo.Id].currentUser.id;
+            var userId = StateService.Connections[socket.ConnectionInfo.Id]!.currentUser!.id;
+
+            Console.WriteLine("Hereeeeeee" + userId);
 
             messageRepository.CreateMessage(dto.message!, DateTimeOffset.UtcNow, userId, dto.roomId);
 
